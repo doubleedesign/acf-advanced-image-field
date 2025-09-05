@@ -1,0 +1,114 @@
+{
+	"preset": "laravel",
+	"exclude": [
+		"vendor",
+		"node_modules",
+		"packages/**/vendor",
+		"packages/**/node_modules",
+		"packages/**/cache/*"
+	],
+	"indent": "\t",
+	"rules": {
+		"indentation_type": true,
+		"line_ending": true,
+		"no_whitespace_in_blank_line": false,
+		"blank_line_after_opening_tag": false,
+		"blank_lines_before_namespace": false,
+		"blank_line_after_namespace": false,
+		"blank_line_between_import_groups": false,
+		"blank_line_before_statement": {
+			"statements": [
+				"return"
+			]
+		},
+		"no_blank_lines_after_class_opening": false,
+		"single_import_per_statement": false,
+		"group_import": true,
+		"no_unused_imports": true,
+		"ordered_imports": {
+			"sort_algorithm": "none"
+		},
+		"elseif": false,
+		"control_structure_continuation_position": {
+			"position": "next_line"
+		},
+		"braces_position": {
+			"functions_opening_brace": "same_line",
+			"classes_opening_brace": "same_line",
+			"control_structures_opening_brace": "same_line"
+		},
+		"class_definition": {
+			"single_line": true,
+			"single_item_single_line": true,
+			"multi_line_extends_each_single_line": false,
+			"space_before_parenthesis": false,
+			"inline_constructor_arguments": true
+		},
+		"class_attributes_separation": {
+			"elements": {
+				"property": "only_if_meta"
+			}
+		},
+		"function_declaration": {
+			"closure_function_spacing": "none",
+			"closure_fn_spacing": "none",
+			"trailing_comma_single_line": false
+		},
+		"lambda_not_used_import": false,
+		"new_with_parentheses": {
+			"anonymous_class": true,
+			"named_class": true
+		},
+		"binary_operator_spaces": {
+			"operators": {
+				"=>": "align",
+				"=": "single_space"
+			}
+		},
+		"method_argument_space": {
+			"on_multiline": "ignore",
+			"keep_multiple_spaces_after_comma": false,
+			"after_heredoc": true
+		},
+		"cast_spaces": {
+			"space": "none"
+		},
+		"concat_space": {
+			"spacing": "one"
+		},
+		"no_alias_functions": false,
+		"not_operator_with_space": false,
+		"not_operator_with_successor_space": false,
+		"no_whitespace_before_comma_in_array": true,
+		"array_push": false,
+		"array_syntax": false,
+		"trailing_comma_in_multiline": false,
+		"single_quote": false,
+		"heredoc_to_nowdoc": false,
+		"no_empty_phpdoc": false,
+		"no_blank_lines_after_phpdoc": true,
+		"phpdoc_no_empty_return": false,
+		"no_superfluous_phpdoc_tags": false,
+		"phpdoc_no_package": false,
+		"phpdoc_var_without_name": false,
+		"phpdoc_separation": {
+			"groups": [
+				[
+					"package",
+					"subpackage",
+					"version",
+					"var",
+					"description",
+					"supported-values",
+					"default-value",
+					"param"
+				],
+				[
+					"throws",
+					"return"
+				]
+			]
+		},
+		"no_php4_constructor": true
+	}
+}

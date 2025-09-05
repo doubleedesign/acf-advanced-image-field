@@ -1,0 +1,18 @@
+{
+	"name": "doubleedesign/acf-advanced-image-field",
+	"version": "0.0.1",
+	"description": "Enhanced image field for Advanced Custom Fields with aspect ratio and focal point settings + real-time in-editor preview.",
+	"type": "wordpress-plugin",
+	"authors": [
+		{
+			"name": "Leesa Ward",
+			"email": "leesa@doubleedesign.com.au"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Doubleedesign\\ACF\\AdvancedImageField\\": ["src/", "src/types"]
+		}
+	},
+	"minimum-stability": "dev"
+}

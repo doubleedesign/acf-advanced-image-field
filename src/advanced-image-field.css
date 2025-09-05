@@ -1,0 +1,121 @@
+.acf-field-image-advanced {
+  container-type: inline-size;
+}
+.acf-field-image-advanced .advanced-image-field {
+  display: flex;
+  flex-direction: column;
+}
+@container (min-width: 600px) {
+  .acf-field-image-advanced .advanced-image-field {
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 940px;
+    max-height: 600px;
+  }
+}
+.acf-field-image-advanced .advanced-image-field__image > .acf-field:first-child, .acf-field-image-advanced .advanced-image-field__options > .acf-field:first-child {
+  margin-top: 0;
+}
+.acf-field-image-advanced .advanced-image-field__image > .acf-field:last-child, .acf-field-image-advanced .advanced-image-field__options > .acf-field:last-child {
+  margin-bottom: 0;
+}
+@container (min-width: 600px) {
+  .acf-field-image-advanced .advanced-image-field__image {
+    width: 65%;
+    flex-basis: 65%;
+  }
+}
+@container (min-width: 600px) {
+  .acf-field-image-advanced .advanced-image-field__image > .acf-field[data-key$=image] {
+    height: 100%;
+    display: flex;
+  }
+}
+.acf-field-image-advanced .advanced-image-field__image > .acf-field[data-key$=image] .acf-label {
+  display: none;
+}
+.acf-field-image-advanced .advanced-image-field__image > .acf-field[data-key$=image] .acf-input {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+.acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value {
+  aspect-ratio: var(--aspect-ratio, auto);
+  transition: aspect-ratio 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 600px;
+  min-height: 400px;
+  transform: translateX(0);
+}
+.acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value .acf-actions {
+  position: fixed;
+}
+.acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value .image-wrap {
+  cursor: crosshair;
+  overflow: hidden;
+  float: none;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none !important;
+  width: fit-content;
+  height: fit-content;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: var(--image-offset-y, 0);
+  left: var(--image-offset-x, 0);
+}
+.acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value .image-wrap .focal-point-indicator {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: calc(var(--focal-point-y, 50) * 1% - 1rem);
+  left: calc(var(--focal-point-x, 50) * 1% - 1rem);
+}
+.acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value .image-wrap img {
+  width: auto;
+  max-width: none;
+  max-height: none !important;
+  min-height: 100%;
+  min-width: 100%;
+}
+.acf-field-image-advanced .advanced-image-field__options {
+  container-type: inline-size;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  height: min-content;
+}
+@container (min-width: 600px) {
+  .acf-field-image-advanced .advanced-image-field__options {
+    width: 35%;
+    flex-basis: 35%;
+  }
+}
+.acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=focal_point] .acf-fields, .acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=image_offset] .acf-fields {
+  border: 0;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+@container (min-width: 200px) {
+  .acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=focal_point] .acf-fields, .acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=image_offset] .acf-fields {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+.acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=focal_point] .acf-fields .acf-field-number, .acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=image_offset] .acf-fields .acf-field-number {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0;
+  border: 0;
+}
+.acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=focal_point] .acf-fields .acf-field-number .acf-label, .acf-field-image-advanced .advanced-image-field__options > .acf-field[data-key$=image_offset] .acf-fields .acf-field-number .acf-label {
+  margin: 0;
+}
+
+/*# sourceMappingURL=advanced-image-field.css.map */

@@ -1,0 +1,147 @@
+.acf-field-image-advanced {
+	container-type: inline-size;
+
+	.advanced-image-field {
+		display: flex;
+		flex-direction: column;
+
+		@container (min-width: 600px) {
+			flex-direction: row;
+			gap: 1rem;
+			max-width: 940px;
+			max-height: 600px;
+		}
+
+		&__image,
+		&__options {
+			> .acf-field {
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&__image {
+			@container (min-width: 600px) {
+				width: 65%;
+				flex-basis: 65%;
+			}
+
+			> .acf-field {
+				&[data-key$="image"] {
+					@container (min-width: 600px) {
+						height: 100%;
+						display: flex;
+					}
+
+					.acf-label {
+						display: none;
+					}
+
+					.acf-input {
+						display: flex;
+						width: 100%;
+						height: fit-content;
+					}
+				}
+			}
+
+			.acf-image-uploader.has-value {
+				aspect-ratio: var(--aspect-ratio, auto);
+				transition: aspect-ratio 0.3s ease-in-out;
+				overflow: hidden;
+				max-height: 600px;
+				min-height: 400px;
+
+				// Ensure the ACF native action buttons for the image don't disappear when the .image-wrap moves
+				// (because they're inside that and it needs to have position:relative for the focal point picker)
+				transform: translateX(0); // Makes children with position:fixed be fixed relative to this container
+				.acf-actions {
+					position: fixed;
+				}
+
+				.image-wrap {
+					cursor: crosshair;
+					overflow: hidden;
+					float: none;
+					min-width: 100%;
+					min-height: 100%;
+					max-width: none !important;
+					width: fit-content;
+					height: fit-content;
+					transition: all 0.3s ease-in-out;
+					position: relative;
+					top: var(--image-offset-y, 0);
+					left: var(--image-offset-x, 0);
+
+					.focal-point-indicator {
+						width: 2rem;
+						height: 2rem;
+						border: 2px solid white;
+						border-radius: 50%;
+						box-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+						position: absolute;
+						top: calc(var(--focal-point-y, 50) * 1% - 1rem);
+						left: calc(var(--focal-point-x, 50) * 1% - 1rem);
+					}
+
+					img {
+						width: auto;
+						max-width: none;
+						max-height: none !important;
+						min-height: 100%;
+						min-width: 100%;
+					}
+				}
+			}
+		}
+
+		&__options {
+			container-type: inline-size;
+			background: white;
+			border: 1px solid #ddd;
+			padding: 1rem;
+			height: min-content;
+
+			@container (min-width: 600px) {
+				width: 35%;
+				flex-basis: 35%;
+			}
+
+			> .acf-field {
+				&[data-key$="focal_point"],
+				&[data-key$="image_offset"] {
+
+					.acf-fields {
+						border: 0;
+						display: flex !important;
+						flex-direction: column;
+						gap: 0.25rem;
+
+						@container (min-width: 200px) {
+							flex-direction: row;
+							gap: 0.5rem;
+						}
+
+						.acf-field-number {
+							display: flex;
+							gap: 0.25rem;
+							flex-wrap: nowrap;
+							align-items: center;
+							padding: 0;
+							border: 0;
+
+							.acf-label {
+								margin: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
