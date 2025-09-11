@@ -55,7 +55,7 @@
 				transition: aspect-ratio 0.3s ease-in-out;
 				overflow: hidden;
 				max-height: 600px;
-				min-height: 400px;
+				//min-height: 400px;
 
 				// Ensure the ACF native action buttons for the image don't disappear when the .image-wrap moves
 				// (because they're inside that and it needs to have position:relative for the focal point picker)

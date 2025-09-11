@@ -44,7 +44,6 @@
   transition: aspect-ratio 0.3s ease-in-out;
   overflow: hidden;
   max-height: 600px;
-  min-height: 400px;
   transform: translateX(0);
 }
 .acf-field-image-advanced .advanced-image-field__image .acf-image-uploader.has-value .acf-actions {

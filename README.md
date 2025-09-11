@@ -21,7 +21,7 @@ The field returns an associative array value for use in your templates, with the
 | Key            | Type                    | Description                                                                   |
 |----------------|-------------------------|-------------------------------------------------------------------------------|
 | `image_id`     | `int`                   | The attachment ID                                                             |
-| `url`          | `string`                | The image URL                                                                 |
+| `url`          | `string`                | The URL of the image, scaled to 1200px max on its longest side                |
 | `aspect_ratio` | `AspectRatio`           | The selected aspect ratio                                                     |
 | `focal_point`  | `array{x: int, y: int}` | The selected focal point coordinates                                          |
 | `offset`       | `array{x: int, y: int}` | The percentage offsets required to position the image to suit the focal point |
@@ -41,6 +41,9 @@ enum AspectRatio: string {
 	case CLASSIC_PORTRAIT = '2:3';
 }
 ```
+
+The plugin registers an image size in WordPress, called `image_advanced_resized` (and a constant for it,
+`ACF_ADVANCED_IMAGE_FIELD_SIZE`), which scales larger images down to 1200px on their longest side. This is so that the image can be positioned within the frame according to its settings without additional images being generated every time the settings are changed, without potentially loading huge images on the front-end where it is not necessary. This resized image is the one returned by default when fetching the field value.
 
 This plugin does not provide the HTML or CSS required to make the images format correctly on the front-end. You will need to do this in your theme.
 

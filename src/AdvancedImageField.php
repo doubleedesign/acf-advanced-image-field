@@ -83,7 +83,7 @@ class AdvancedImageField extends acf_field {
         $image_id = isset($formatted['image']) ? (int)$formatted['image'] : null;
         unset($formatted['image']);
         $formatted['image_id'] = $image_id;
-        $formatted['src'] = $image_id ? wp_get_attachment_url($image_id) : '';
+        $formatted['src'] = $image_id ? wp_get_attachment_image_url($image_id, ACF_ADVANCED_IMAGE_FIELD_SIZE) : '';
         $formatted['alt'] = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
         $formatted['caption'] = $image_id ? wp_get_attachment_caption($image_id) : '';
         $formatted['title'] = $image_id ? get_the_title($image_id) : '';
@@ -132,15 +132,17 @@ class AdvancedImageField extends acf_field {
             $aspect_ratio = AspectRatio::tryFrom($saved_value["{$parent_key}__aspect_ratio"]);
         }
         if (isset($saved_value["{$parent_key}__focal_point"]) && is_array($saved_value["{$parent_key}__focal_point"])) {
+            $focal_point_field = "{$parent_key}__focal_point";
             $focal_point = array(
-                'x' => $saved_value["{$parent_key}__focal_point__x"] ?? $this->default_focal_point['x'],
-                'y' => $saved_value["{$parent_key}__focal_point__y"] ?? $this->default_focal_point['y']
+                'x' => $saved_value[$focal_point_field]["{$parent_key}__focal_point_x"] ?? $this->default_focal_point['x'],
+                'y' => $saved_value[$focal_point_field]["{$parent_key}__focal_point_y"] ?? $this->default_focal_point['y']
             );
         }
         if (isset($saved_value["{$parent_key}__image_offset"]) && is_array($saved_value["{$parent_key}__image_offset"])) {
+            $offset_field = "{$parent_key}__image_offset";
             $offset = array(
-                'x' => $saved_value["{$parent_key}__image_offset__x"] ?? $this->default_offset['x'],
-                'y' => $saved_value["{$parent_key}__image_offset__y"] ?? $this->default_offset['y']
+                'x' => $saved_value[$offset_field]["{$parent_key}__image_offset__x"] ?? $this->default_offset['x'],
+                'y' => $saved_value[$offset_field]["{$parent_key}__image_offset__y"] ?? $this->default_offset['y']
             );
         }
 

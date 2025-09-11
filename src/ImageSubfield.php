@@ -23,9 +23,10 @@ class ImageSubfield {
             'type'                  => 'image',
             'default_value'         => $value,
             'required'              => true,
+            'min_width'             => 600,
             'return_format'         => 'array',
-            'preview_size'          => 'full',
-            'library'               => 'all'
+            'preview_size'          => ACF_ADVANCED_IMAGE_FIELD_SIZE,
+            'library'               => 'all',
         );
     }
 }
