@@ -31,7 +31,8 @@ class AspectRatioSubfield {
 
         return array(
             'key'           => $parent_key . '__aspect_ratio',
-            'label'         => 'Aspect ratio',
+            'label'         => 'Ideal aspect ratio',
+            'instructions'  => 'Crop the image to suit this aspect ratio by default, where possible. Note that your theme code may override this in some situations (for example, making a banner higher than cinema ratios on small viewports)',
             'name'          => 'aspect_ratio',
             'type'          => 'select',
             'choices'       => $options,

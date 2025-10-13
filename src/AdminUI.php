@@ -56,6 +56,6 @@ class AdminUI {
     }
 
     protected function should_render_instructions_as_tooltips($field): bool {
-        return in_array($field['label'], ['Focal point', 'Image offset']);
+        return in_array($field['label'], ['Ideal aspect ratio', 'Aspect ratio', 'Focal point', 'Image offset']);
     }
 }
