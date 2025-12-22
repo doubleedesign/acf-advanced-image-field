@@ -1,7 +1,7 @@
 /* global acf, jQuery */
 jQuery(document).ready(function ($) {
 	/**
-	 * Initialise instance when an advanced image field is loaded in the editor
+	 * Initialise instance when an advanced image field is loaded in the classic editor on its own
 	 */
 	acf.addAction('load_field/type=image_advanced', function (field) {
 		const fieldArea = field.$el[0];
@@ -13,10 +13,21 @@ jQuery(document).ready(function ($) {
 	 * inside a flexible content module called "image" when a new one is added to the page
 	 */
 	acf.addAction('append', function (maybeModule) {
-		if (maybeModule[0].dataset.layout === 'image') {
+		if (maybeModule[0]?.dataset?.layout === 'image') {
 			new AdvancedImageFieldEditor(maybeModule[0]).init();
 		}
 	});
+
+	/**
+	 * Initialise instance when an advanced image field is loaded in the block editor
+	 */
+	function initImageAdvanced(field) {
+		new AdvancedImageFieldEditor(field.$el[0]).init();
+	}
+	if(wp.data.select('core/editor')) {
+		acf.addAction('ready_field/type=image_advanced', initImageAdvanced);
+		acf.addAction('append_field/type=image_advanced', initImageAdvanced);
+	}
 });
 
 class AdvancedImageFieldEditor {
@@ -61,12 +72,20 @@ class AdvancedImageFieldEditor {
 	}
 
 	setX(x) {
+		if(isNaN(x)) {
+			return;
+		}
+
 		this.x = x;
 		this.xField.value = x;
 		this.container.style.setProperty('--focal-point-x', x);
 	}
 
 	setY(y) {
+		if(isNaN(y)) {
+			return;
+		}
+
 		this.y = y;
 		this.yField.value = y;
 		this.container.style.setProperty('--focal-point-y', y);
@@ -78,6 +97,10 @@ class AdvancedImageFieldEditor {
 	}
 
 	setOffsets(x, y) {
+		if(isNaN(x) || isNaN(y)) {
+			return;
+		}
+
 		this.offsetXfield.value = x;
 		this.offsetYfield.value = y;
 		this.container.style.setProperty('--image-offset-x', `${x}%`);

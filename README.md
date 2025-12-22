@@ -6,11 +6,13 @@ Uses the built-in image, group, number, and select fields to create a more advan
 
 ![editor-screenshot.png](docs/editor-screenshot.png)
 
+_This plugin is not affiliated with or endorsed by WPEngine, the owners of ACF._
+
 ## Status
 
-This is an alpha release that has been minimally tested for use as a standalone field and within a flexible content field, from which I have no reason to think it wouldn't also work with repeaters but have not tested this. More extensive and automated testing will be carried out as I continue work on this.
+This is an alpha release that has been minimally tested for use as a standalone field, within a flexible content field, or within an ACF block.
 
-_This plugin is not affiliated with or endorsed by WPEngine, the owners of ACF._
+I have no reason to think it wouldn't also work with repeaters but have not tested this. More extensive and automated testing will be carried out when I continue work on this.
 
 ## Installation
 
