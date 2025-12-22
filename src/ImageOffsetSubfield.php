@@ -22,7 +22,7 @@ class ImageOffsetSubfield {
             'key'          => $parent_key . '__image_offset',
             'label'        => 'Image offset',
             'name'         => 'image_offset',
-            'instructions' => 'Automatically-calculated offsets used to crop the image to suit the aspect ratio and focal point selections',
+            'instructions' => 'Automatically-calculated offsets that may be used to crop the image to suit the aspect ratio and focal point selections',
             'type'         => 'group',
             'layout'       => 'block',
             'sub_fields'   => array(
