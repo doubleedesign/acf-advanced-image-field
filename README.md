@@ -1,6 +1,6 @@
-# ACF Advanced Image Field
+# Advanced Image Field for ACF
 
-An [Advanced Custom Fields](https://www.advancedcustomfields.com/) field type providing in-editor options and real-time preview of aspect ratio and focal point selection.
+A [Advanced Custom Fields](https://www.advancedcustomfields.com/) field type providing in-editor options and real-time preview of aspect ratio and focal point selection.
 
 Uses the built-in image, group, number, and select fields to create a more advanced image field while leveraging ACF's native editor UI and back-end processing functionality. It also utilises WordPress/ClassicPress's built-in attachment meta for alt text, caption, and title values to keep data consistent across the site, avoid duplicate/redundant data being stored in the database and potentially causing confusion for editors.
 
@@ -9,6 +9,8 @@ Uses the built-in image, group, number, and select fields to create a more advan
 ## Status
 
 This is an alpha release that has been minimally tested for use as a standalone field and within a flexible content field, from which I have no reason to think it wouldn't also work with repeaters but have not tested this. More extensive and automated testing will be carried out as I continue work on this.
+
+_This plugin is not affiliated with or endorsed by WPEngine, the owners of ACF._
 
 ## Installation
 
