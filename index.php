@@ -6,7 +6,7 @@
  * Author: Double-E Design
  * Plugin URI: https://github.com/doubleedesign/acf-advanced-image-field
  * Author URI: https://www.doubleedesign.com.au
- * Version: 0.0.1
+ * Version: 0.0.3
  * Requires plugins: advanced-custom-fields-pro
  * Text domain: acf-advanced-image-field
  */

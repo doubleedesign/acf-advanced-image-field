@@ -53,7 +53,7 @@ class AdvancedImageField extends acf_field {
     /**
      * Format the value for use in template functions.
      *
-     * @param  array  $value  The raw field value.
+     * @param  array|null  $value  The raw field value.
      * @param  int|string  $post_id  The post ID for this value.
      * @param  array  $field  The field specifications.
      *
@@ -68,7 +68,11 @@ class AdvancedImageField extends acf_field {
      *     image_offset: array{x: int, y: int}
      * }
      */
-    public function format_value(array $value, int|string $post_id, array $field): array {
+    public function format_value(?array $value, int|string $post_id, array $field): array {
+		if($value === null) {
+			return [];
+		}
+
         $formatted = $this->strip_prefix_from_array_keys($value, "{$field['key']}__");
 
         // Find any second-level arrays and strip their field name prefix from their keys (

@@ -25,8 +25,9 @@ jQuery(document).ready(function ($) {
 		new AdvancedImageFieldEditor(field.$el[0]).init();
 	}
 	if(wp.data.select('core/editor')) {
-		acf.addAction('ready_field/type=image_advanced', initImageAdvanced);
-		acf.addAction('append_field/type=image_advanced', initImageAdvanced);
+		acf.addAction('ready_field/type=image_advanced', initImageAdvanced);  // Old ACF blocks inline editor
+		acf.addAction('append_field/type=image_advanced', initImageAdvanced); // Old ACF blocks inline editor
+		acf.addAction('remount_field/type=image_advanced', initImageAdvanced); // ACF Blocks v3+ overlay panel
 	}
 });
 

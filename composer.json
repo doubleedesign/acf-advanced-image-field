@@ -1,6 +1,6 @@
 {
 	"name": "doubleedesign/acf-advanced-image-field",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Enhanced image field for Advanced Custom Fields with aspect ratio and focal point settings + real-time in-editor preview.",
 	"type": "wordpress-plugin",
 	"authors": [
