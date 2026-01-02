@@ -145,8 +145,8 @@ class AdvancedImageField extends acf_field {
         if (isset($saved_value["{$parent_key}__image_offset"]) && is_array($saved_value["{$parent_key}__image_offset"])) {
             $offset_field = "{$parent_key}__image_offset";
             $offset = array(
-                'x' => $saved_value[$offset_field]["{$parent_key}__image_offset__x"] ?? $this->default_offset['x'],
-                'y' => $saved_value[$offset_field]["{$parent_key}__image_offset__y"] ?? $this->default_offset['y']
+                'x' => $saved_value[$offset_field]["{$parent_key}__image_offset_x"] ?? $this->default_offset['x'],
+                'y' => $saved_value[$offset_field]["{$parent_key}__image_offset_y"] ?? $this->default_offset['y']
             );
         }
 

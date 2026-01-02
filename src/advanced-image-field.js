@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
 	 * Initialise instance when an advanced image field is loaded in the block editor
 	 */
 	function initImageAdvanced(field) {
-		new AdvancedImageFieldEditor(field.$el[0]).init();
+		 new AdvancedImageFieldEditor(field.$el[0]).init();
 	}
 	if(wp.data.select('core/editor')) {
 		acf.addAction('ready_field/type=image_advanced', initImageAdvanced);  // Old ACF blocks inline editor
@@ -36,9 +36,14 @@ class AdvancedImageFieldEditor {
 		this.module = fieldElement;
 		this.container = this.module.querySelector('.acf-image-uploader');
 		this.preview = this.module.querySelector('.image-wrap');
+		this.initialised = false;
 	}
 
 	init() {
+		if(this.initialised) {
+			return;
+		}
+
 		// Add the focal point indicator element
 		const indicator = document.createElement('div');
 		indicator.className = 'focal-point-indicator';
@@ -70,6 +75,8 @@ class AdvancedImageFieldEditor {
 		// This responds to both aspect ratio setting changes and viewport resize events
 		this.resizeObserver = new ResizeObserver((entries) => this.handlePreviewSizeChange(entries[0]));
 		this.resizeObserver.observe(this.container);
+
+		this.initialised = true;
 	}
 
 	setX(x) {
@@ -189,6 +196,14 @@ class AdvancedImageFieldEditor {
 		const containerData = this.container.getBoundingClientRect();
 		const indicatorData = this.indicator.getBoundingClientRect();
 		const previewData = this.preview.getBoundingClientRect();
+
+		// If the container or preview have zero width/height, bail
+		// (this happens when the editing area is hidden, e.g., ACF block modal overlay opened then closed)
+		if((containerData.width === 0 && containerData.height === 0) && (previewData.height === 0 && previewData.height === 0)) {
+			console.debug('Advanced Image Field: Container or preview has zero width/height, skipping repositioning.');
+
+			return;
+		}
 
 		// Get position of indicator relative to container in pixels
 		const rawRelativePosition = {
