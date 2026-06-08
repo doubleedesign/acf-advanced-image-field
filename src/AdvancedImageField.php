@@ -68,9 +68,12 @@ class AdvancedImageField extends acf_field {
      *     image_offset: array{x: int, y: int}
      * }
      */
-    public function format_value(?array $value, int|string $post_id, array $field): array {
+    public function format_value(array|int|null $value, int|string $post_id, array $field): array {
 		if($value === null) {
 			return [];
+		}
+		if(is_numeric($value)) {
+			$value = array("{$field['key']}__image" => (int)$value);
 		}
 
         $formatted = $this->strip_prefix_from_array_keys($value, "{$field['key']}__");
